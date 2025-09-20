@@ -12,79 +12,95 @@
             // Initialize ray animations on scroll
             initRays();
             
-            // Initialize countdown timer
-            initCountdown();
-            
             // Initialize modal functionality
             initModal();
         });
         
-         // Testimonials Carousel functionality
-        function initTestimonialsCarousel() {
+           document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.testimonials-carousel');
             const cards = document.querySelectorAll('.testimonial-card');
-            const dots = document.querySelectorAll('.dot');
-            let currentIndex = 0;
+            const container = document.querySelector('.carousel-container');
+            
+            let currentPosition = 0;
+            let cardWidth = cards[0].offsetWidth + 30; // width + margin
             let autoScrollInterval;
             
-            // Функция для обновления видимых карточек
-            function updateCarousel() {
-                // Снимаем активный класс со всех карточек
-                cards.forEach(card => card.classList.remove('active'));
+            // Функция для расчета количества видимых карточек
+            function calculateVisibleCards() {
+                const containerWidth = container.offsetWidth;
+                return Math.floor(containerWidth / cardWidth);
+            }
+            
+            // Функция для центрирования карусели
+            function centerCarousel() {
+                const containerWidth = container.offsetWidth;
+                const visibleCards = calculateVisibleCards();
+                const contentWidth = cards.length * cardWidth;
                 
-                // Устанавливаем активный класс для текущей группы из 3 карточек
-                for (let i = 0; i < 3; i++) {
-                    const index = (currentIndex + i) % cards.length;
-                    cards[index].classList.add('active');
+                if (contentWidth < containerWidth) {
+                    // Если все карточки помещаются в контейнер
+                    currentPosition = 0;
+                    carousel.style.transform = `translateX(0)`;
+                    carousel.style.justifyContent = 'center';
+                } else {
+                    // Если карточек больше, чем помещается
+                    carousel.style.justifyContent = 'flex-start';
+                    updateCarousel();
+                }
+            }
+            
+            // Функция для обновления позиции карусели
+            function updateCarousel() {
+                const maxPosition = (cards.length - calculateVisibleCards()) * cardWidth;
+                
+                // Ограничиваем позицию в допустимых пределах
+                if (currentPosition > maxPosition) {
+                    currentPosition = maxPosition;
+                } else if (currentPosition < 0) {
+                    currentPosition = 0;
                 }
                 
-                // Обновляем точки навигации
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === Math.floor(currentIndex / 1));
-                });
-                
-                // Плавное перемещение карусели
-                const translateValue = -currentIndex * (100 / 3) + '%';
-                carousel.style.transform = `translateX(${translateValue})`;
+                carousel.style.transform = `translateX(-${currentPosition }px)`;
             }
             
             // Функция для автоматической прокрутки
             function startAutoScroll() {
+                clearInterval(autoScrollInterval);
+                
                 autoScrollInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % (cards.length - 2);
+                    const visibleCards = calculateVisibleCards();
+                    const maxPosition = (cards.length - visibleCards) * cardWidth;
+                    
+                    if (currentPosition >= maxPosition) {
+                        // Если достигли конца, возвращаемся к началу
+                        currentPosition = 0;
+                    } else {
+                        // Прокручиваем на одну карточку
+                        currentPosition += cardWidth;
+                    }
+                    
                     updateCarousel();
-                }, 8000); // 8 секунд
+                }, 5000); // 5 секунд
             }
             
-            // Останавливаем автоматическую прокрутку при наведении мыши
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoScrollInterval);
-            });
+            // Обработчик изменения размера окна
+            function handleResize() {
+                cardWidth = cards[0].offsetWidth + 30; // Обновляем ширину карточки
+                centerCarousel();
+                startAutoScroll(); // Перезапускаем автоскролл
+            }
             
-            // Возобновляем автоматическую прокрутку, когда мышь убирают
-            carousel.addEventListener('mouseleave', () => {
-                startAutoScroll();
-            });
-            
-            // Обработчики для точек навигации
-            dots.forEach((dot, i) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = i * 1;
-                    updateCarousel();
-                });
-            });
-            
-            // Запускаем автоматическую прокрутку
+            // Инициализация
+            centerCarousel();
             startAutoScroll();
             
-            // Инициализируем начальное состояние
-            updateCarousel();
-        }
+            // Слушатель изменения размера окна
+            window.addEventListener('resize', handleResize);
+        });
         
         // Инициализация карусели при загрузке страницы            
            // Ожидаем полной загрузки DOM
         document.addEventListener('DOMContentLoaded', function() {
-            initTestimonialsCarousel();
             // Получаем элементы только после загрузки DOM
             const slider = document.getElementById('comparison-slider');
             const afterContainer = document.querySelector('.after-container');
@@ -120,52 +136,7 @@
                 }
             });
         });
-        /*function initSlider() {
-            const slider = document.querySelector('.slider-container');
-            const before = document.querySelector('.slider-before');
-            const handle = document.querySelector('.slider-handle');
-            
-            let isMoving = false;
-            
-            const moveSlider = (x) => {
-                if (!isMoving) return;
-                
-                const containerRect = slider.getBoundingClientRect();
-                let position = (x - containerRect.left) / containerRect.width;
-                position = Math.max(0, Math.min(1, position));
-                
-                before.style.width = position * 100 + '%';
-                handle.style.left = position * 100 + '%';
-            };
-            
-            handle.addEventListener('mousedown', () => isMoving = true);
-            handle.addEventListener('touchstart', () => isMoving = true);
-            
-            document.addEventListener('mouseup', () => isMoving = false);
-            document.addEventListener('touchend', () => isMoving = false);
-            
-            document.addEventListener('mousemove', (e) => moveSlider(e.clientX));
-            document.addEventListener('touchmove', (e) => moveSlider(e.touches[0].clientX));
-        }
-        */
-        
-        // Ray animations
-       /* function initRays() {
-            const rays = document.querySelectorAll('.ray');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            rays.forEach(ray => {
-                observer.observe(ray);
-            });
-        }
-        */
+       
        // Updated ray animations for horizontal layout
         function initRays() {
             const rayCards = document.querySelectorAll('.ray-card');
@@ -183,28 +154,6 @@
             rayCards.forEach(card => {
                 observer.observe(card);
             });
-        }
-        // Countdown timer
-        function initCountdown() {
-            const countdownElement = document.getElementById('countdown');
-            let timeLeft = 14 * 60 * 60 + 59 * 60 + 59; // 14 hours, 59 minutes, 59 seconds
-            
-            const timer = setInterval(() => {
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    countdownElement.textContent = "00:00:00";
-                    return;
-                }
-                
-                timeLeft--;
-                
-                const hours = Math.floor(timeLeft / 3600);
-                const minutes = Math.floor((timeLeft % 3600) / 60);
-                const seconds = timeLeft % 60;
-                
-                countdownElement.textContent = 
-                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
         }
         
         // Modal functionality

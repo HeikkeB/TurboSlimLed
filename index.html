@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purga Inti - Despierta Tu Energía Interior</title>
+    <title>CENTRO DE SALUD PerúNO: UNA FORMA INNOVADORA DE PERDER DE 5 A 7 KG POR SEMANA, SIN PASTILLAS, DIETA Y DEPORTE</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <video class="hero-video" autoplay muted loop playsinline poster="./assets/images/18317478-hd_1080_1920_60fps_00000.webp">
             <source src="./assets/images/18317478-hd_1080_1920_60fps.mp4" type="video/mp4">
         </video>
@@ -19,12 +19,15 @@
         
             <h1>¡Despierta tu poder para quemar grasa!</h1>
             <p>Descubre el método peruano más efectivo para transformar tu cuerpo</p>
+            <div class="product-showcase">
+                <img src="./assets/images/TurboSlim.png" alt="TurboSlim">
+            </div>
             <a href="#order" href="#order-now" class="btn shine-button" id="cta-button1">¡CÓMPRALO AHORA! →</a>
         </div>
     </section>
 
     <!-- Awakening Section -->
-    <section class="awakening" data-aos="fade-up">
+    <section class="awakening" id="awakening" data-aos="fade-up">
         <h2>El Despertar de tu Energía</h2>
         <div class="container-slider">
              <div class="comparison-slider">
@@ -39,28 +42,22 @@
     <input type="range" min="0" max="100" value="0" class="slider" id="comparison-slider">
     <div class="slider-arrow">→<br><span>¡Desliza!</span></div>
 </div>
-           <!--
-        <div class="slider-container">
-                <div class="slider-before">
-                </div>
-                <div class="slider-after"></div>
-                <div class="slider-handle"></div>
-                <div class="slider-label label-before">Antes</div>
-                <div class="slider-label label-after">Después</div>
-            </div>
-        --> 
         </div>
     </section>
 
     <!-- Inca Science Section -->
-    <section class="inca-science" data-aos="fade-up">
+    <section class="inca-science" id="inca" data-aos="fade-up">
         <div class="container">
             <h2>La sabiduría del Inti, al servicio de tu bienestar</h2>
             <div class="inca-symbols">
                 <div class="symbol" data-aos="fade-up" data-aos-delay="100">
                     <div class="symbol-icon">🌞</div>
-                    <h3>Oro de los Incas</h3>
-                    <p>Potente extracto de cúrcuma andina para energía y quema de grasa acelerada.</p>
+                    <h3>Control natural del apetito con ingredientes de origen vegetal</h3>
+                    <p>
+                        Las tabletas TurboSlim contienen extracto de hoodia y fibra soluble de inulina, 
+                        que ayudan a reducir el hambre y evitan los antojos nocturnos, 
+                        haciendo más fácil seguir una dieta.
+                    </p>
                 </div>
                 <div class="symbol" data-aos="fade-up" data-aos-delay="200">
                     <div class="symbol-icon">🏔️</div>
@@ -76,33 +73,8 @@
         </div>
     </section>
 
-    <!-- Ritual Section -->
-<!--
-<section class="ritual" data-aos="fade-up">
-        <div class="container">
-            <h2>El Ritual de Purga Inti: Simple y Poderoso</h2>
-            <div class="rays-container">
-                <div class="ray ray-1" data-aos="fade-down">
-                    <div class="ray-icon">☀️</div>
-                    <h3>Despierta</h3>
-                    <p>Toma cada mañana para un día lleno de energía y vitalidad renovada.</p>
-                </div>
-                <div class="ray ray-2" data-aos="fade-down" data-aos-delay="200">
-                    <div class="ray-icon">🔥</div>
-                    <h3>Quema</h3>
-                    <p>Activa tu metabolismo y acelera la quema de grasa durante todo el día.</p>
-                </div>
-                <div class="ray ray-3" data-aos="fade-down" data-aos-delay="400">
-                    <div class="ray-icon">✨</div>
-                    <h3>Purifica</h3>
-                    <p>Limpia tu organismo y prepara tu cuerpo para una recuperación óptima.</p>
-                </div>
-            </div>
-        </div>
-    </section>
--->  
 <!-- Ritual Section - UPDATED -->
-<section class="ritual" data-aos="fade-up">
+<!--<section class="ritual" id="ritual" data-aos="fade-up">
         <div class="container">
             <h2>El Ritual de Purga Inti: Simple y Poderoso</h2>
             <div class="rays-container">
@@ -124,13 +96,13 @@
             </div>
         </div>
     </section>  
-
+-->
  <!-- Final CTA Section -->
     <section class="final-cta" id="order" data-aos="fade-up">
         <div class="container">
             <h2 class="product-title">Tu momento es ahora. ¿Lista para brillar?</h2>
             <div class="product-showcase">
-                <img src="./assets/images/TurboSlim.png" alt="Purga Inti Producto">
+                <img src="./assets/images/TurboSlim.png" alt="TurboSlim">
             </div>
             <a href="#order-now" class="btn shine-button" id="cta-button2">¡Sí, Quiero Comenzar!</a>
         </div>
@@ -144,150 +116,129 @@
             <form id="lead-form">
                 <div class="form-group">
                     <label for="name">Nombre completo</label>
-                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    <input type="text" id="name" autocomplete="name" required placeholder="Tu nombre">
                 </div>
                 <div class="form-group">
                     <label for="phone">Número de teléfono</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+51 XXX XXX XXX">
+                    <input type="tel" id="phone" autocomplete="phone" required placeholder="+51 XXX XXX XXX">
                 </div>
                 <button type="submit" class="form-submit">Realizar pedido</button>
             </form>
         </div>
     </div>
-
-    <!-- Social Proof Section -->
-    <!--<section class="social-proof" data-aos="fade-up">
-        <div class="container">
-            <h2>El Perú ya está brillando</h2>
-            <div class="stories-container">
-                <div class="story">
-                    <video class="story-video" muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-talking-about-something-40747-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="story-overlay">
-                        <p>"Ahora tengo energía para jugar con mis hijos después del trabajo" - María, Lima</p>
-                    </div>
-                </div>
-                <div class="story">
-                    <video class="story-video" muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-smiling-woman-showing-her-new-dress-40793-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="story-overlay">
-                        <p>"Finalmente me puse ese vestido que tanto quería" - Carla, Cusco</p>
-                    </div>
-                </div>
-                <div class="story">
-                    <video class="story-video" muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-young-mother-with-her-little-daughter-40819-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="story-overlay">
-                        <p>"Mi niebla mental desapareció por completo en 2 semanas" - Rosa, Arequipa</p>
-                    </div>
-                </div>
-            </div>
-            <a href="#more-stories" class="btn">Ver más historias</a>
-        </div>
-    </section>
--->
+   
  <!-- Social Proof Section - UPDATED -->
-    <section class="social-proof" data-aos="fade-up">
-        <div class="container">
-            <h2>El Perú ya está brillando</h2>
-            <div class="carousel-container">
-                <div class="testimonials-carousel">
-                    <div class="testimonial-card active">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="María con sus hijos" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Ahora tengo energía para jugar con mis hijos después del trabajo."</p>
-                            <div class="testimonial-author">María</div>
-                            <div class="testimonial-location">Lima</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Carla sonriendo" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Finalmente me puse ese vestido que tanto quería. ¡Me siento radiante!"</p>
-                            <div class="testimonial-author">Carla</div>
-                            <div class="testimonial-location">Cusco</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rosa en la cocina" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Mi niebla mental desapareció por completo en 2 semanas. ¡Increíble!"</p>
-                            <div class="testimonial-author">Rosa</div>
-                            <div class="testimonial-location">Arequipa</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1581349437898-ce5e99b1a77e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Juan en el trabajo" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Después de años de fatiga, ahora tengo energía para todo el día."</p>
-                            <div class="testimonial-author">Juan</div>
-                            <div class="testimonial-location">Trujillo</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lucía en el parque" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Mi confianza ha vuelto y me siento mejor que nunca a mis 50 años."</p>
-                            <div class="testimonial-author">Lucía</div>
-                            <div class="testimonial-location">Iquitos</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Elena en la playa" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Por fin recuperé mi figura después del embarazo. ¡Estoy feliz!"</p>
-                            <div class="testimonial-author">Elena</div>
-                            <div class="testimonial-location">Máncora</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db1604?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Diego en las montañas" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Ahora tengo la energía para hacer trekking los fines de semana."</p>
-                            <div class="testimonial-author">Diego</div>
-                            <div class="testimonial-location">Huaraz</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sofía en un café" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Mi ansiedad por la comida desapareció y he perdido 8 kilos naturalmente."</p>
-                            <div class="testimonial-author">Sofía</div>
-                            <div class="testimonial-location">Chiclayo</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Paola de compras" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"Volví a usar mi ropa favorita después de 3 años. ¡Es maravilloso!"</p>
-                            <div class="testimonial-author">Paola</div>
-                            <div class="testimonial-location">Piura</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Ricardo con su familia" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">"A mis 60 años, tengo la vitalidad de cuando tenía 40. Mi familia está asombrada."</p>
-                            <div class="testimonial-author">Ricardo</div>
-                            <div class="testimonial-location">Tacna</div>
-                        </div>
+    <section class="social-proof" id="social">
+        <h2>El Perú ya está brillando</h2>
+        <div class="carousel-container">
+            <div class="testimonials-carousel">
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="María con sus hijos" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Ahora tengo energía para jugar con mis hijos después del trabajo."</p>
+                        <div class="testimonial-author">María</div>
+                        <div class="testimonial-location">Lima</div>
                     </div>
                 </div>
-                <div class="carousel-dots">
-                    <div class="dot active" data-index="0"></div>
-                    <div class="dot" data-index="1"></div>
-                    <div class="dot" data-index="2"></div>
-                    <div class="dot" data-index="3"></div>
-                    <div class="dot" data-index="4"></div>
-                    <div class="dot" data-index="5"></div>
-                    <div class="dot" data-index="6"></div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Carla sonriendo" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Finalmente me puse ese vestido que tanto quería. ¡Me siento radiante!"</p>
+                        <div class="testimonial-author">Carla</div>
+                        <div class="testimonial-location">Cusco</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Rosa en la cocina" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Mi niebla mental desapareció por completo en 2 semanas. ¡Increíble!"</p>
+                        <div class="testimonial-author">Rosa</div>
+                        <div class="testimonial-location">Arequipa</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1581349437898-ce5e99b1a77e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Juan en el trabajo" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Después de años de fatiga, ahora tengo energía para todo el día."</p>
+                        <div class="testimonial-author">Juan</div>
+                        <div class="testimonial-location">Trujillo</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lucía en el parque" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Mi confianza ha vuelto y me siento mejor que nunca a mis 50 años."</p>
+                        <div class="testimonial-author">Lucía</div>
+                        <div class="testimonial-location">Iquitos</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Elena en la playa" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Por fin recuperé mi figura después del embarazo. ¡Estoy feliz!"</p>
+                        <div class="testimonial-author">Elena</div>
+                        <div class="testimonial-location">Máncora</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db1604?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Diego en las montañas" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Ahora tengo la energía para hacer trekking los fines de semana."</p>
+                        <div class="testimonial-author">Diego</div>
+                        <div class="testimonial-location">Huaraz</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sofía en un café" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Mi ansiedad por la comida desapareció y he perdido 8 kilos naturalmente."</p>
+                        <div class="testimonial-author">Sofía</div>
+                        <div class="testimonial-location">Chiclayo</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Paola de compras" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Volví a usar mi ropa favorita después de 3 años. ¡Es maravilloso!"</p>
+                        <div class="testimonial-author">Paola</div>
+                        <div class="testimonial-location">Piura</div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Ricardo con su familia" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"A mis 60 años, tengo la vitalidad de cuando tenía 40. Mi familia está asombrada."</p>
+                        <div class="testimonial-author">Ricardo</div>
+                        <div class="testimonial-location">Tacna</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Purga Inti</h2>
+                <p>Descubre el poder ancestral de los Incas para transformar tu energía y bienestar.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#hero"><i class="fas fa-chevron-right"></i>Volver al inicio</a></li>
+                    <li><a href="#awakening"><i class="fas fa-chevron-right"></i>Antes y Después</a></li>
+                    <li><a href="#inca"><i class="fas fa-chevron-right"></i> Como Funciona</a></li>
+                    <li><a href="#ritual"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                    <li><a href="#social"><i class="fas fa-chevron-right"></i> Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TurboSlim. Todos los derechos reservados.</p>
+        </div>
+    </footer>
    
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
